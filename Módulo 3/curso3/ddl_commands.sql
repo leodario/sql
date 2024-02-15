@@ -14,13 +14,14 @@ CREATE TABLE bankAccounts (
 );
 
 CREATE TABLE bankClient(
-	Id_client INT auto_increment PRIMARY KEY,
-	ClientAccount INT PRIMARY KEY,
-	CPF VARCHAR(11) NOT NULL,
-	RG VARCHAR(9) NOT NULL,
+	Id_client INT auto_increment,
+	ClientAccount INT,
+	CPF CHAR(11) NOT NULL,
+	RG CHAR(9) NOT NULL,
 	Nome VARCHAR(50) NOT NULL,
 	Endereço VARCHAR(100) NOT NULL,
 	Renda_mensal FLOAT,
+    	primary key(Id_client, ClientAccount),
 	CONSTRAINT fk_acconut_client foreign key (ClientAccount) REFERENCES bankAccounts(Id_account) 
 	ON UPDATE CASCADE
 );
